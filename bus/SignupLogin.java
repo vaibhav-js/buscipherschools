@@ -37,15 +37,15 @@ public class SignupLogin {
             if(users.getContact().getEmailID().equalsIgnoreCase(email)) {
                 flag = true;
                 System.out.println("Enter name");
-                name = sc.next();
+                name = sc.nextLine();
                 System.out.println("Enter password");
-                password = sc.next();
+                password = sc.nextLine();
                 System.out.println("Enter street");
-                street = sc.next();
+                street = sc.nextLine();
                 System.out.println("Enter city");
-                city = sc.next();
+                city = sc.nextLine();
                 System.out.println("Enter state");
-                state = sc.next();
+                state = sc.nextLine();
                 System.out.println("Enter phone number");
                 phone = sc.nextInt();
                 users.setPassword(password);
@@ -63,5 +63,16 @@ public class SignupLogin {
             System.out.println("User not found..");
         }
         return;
+    }
+    public Users getUser (String email) {
+        for (Users user: usersList) {
+            if (user.getContact().getEmailID().equalsIgnoreCase(email))
+                return user;
+        }
+        return null;
+    }
+
+    public List<Users> getUsers() {
+        return usersList;
     }
 }
